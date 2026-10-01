@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout pour se placer dans le dossier courant
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Configuration de Java
         uses: actions/setup-java@v4
