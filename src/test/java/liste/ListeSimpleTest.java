@@ -255,4 +255,30 @@ public class ListeSimpleTest {
         System.out.println(listeATester);
         assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))", listeATester.toString());
     }
+
+    @Test
+    void echangerUnNoeudAvecLuiMeme() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        Noeud n = listeATester.tete;
+        listeATester.echanger(n, n);
+        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+    }
+
+    @Test
+    void modifiePremierElementAbsent() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.modifiePremier(9, 4);
+        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+    }
+
+    @Test
+    void supprimePremierElementAbsent() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.supprimePremier(9);
+        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals(2, listeATester.getSize());
+    }
 }
