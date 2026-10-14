@@ -67,6 +67,12 @@ public class ListeSimple {
        tete = supprimeTousRecurs(element, tete);
     }
 
+    /**
+     * La méthode supprime tous les noeuds avec une valeur donnée de la liste
+     * @param element la valeur à supprimer
+     * @param tete le noeud de tête de la liste
+     * @return le nouveau noeud de tête de la liste
+     */
     public Noeud supprimeTousRecurs(Object element, Noeud tete) {
         if (tete != null) {
             Noeud suiteListe = supprimeTousRecurs(element, tete.getSuivant());
@@ -93,7 +99,13 @@ public class ListeSimple {
             return courant;
         }
     }
-
+/** 
+ * La méthode inverse l'ordre des noeuds dans la liste
+ * next sauvegarde le noeud suivant. Il faut le faire avant de changer le lien, sinon on perd le reste de la liste
+ * precedent sauvegarde le noeud précédent
+ * courant est le noeud courant qu'on est en train de traiter
+ * tete est le noeud de tête de la liste
+ */
     public void inverser() {
         Noeud precedent = null;
         Noeud courant = tete;
@@ -106,6 +118,11 @@ public class ListeSimple {
         tete = precedent;
     }
 
+    /**
+     * La méthode retourne le noeud précédent d'un noeud donné dans la liste
+     * @param r le noeud dont on veut trouver le précédent et si elle est la tête de la liste, on retourne null et si le noeud n'est pas dans la liste, on retourne null
+     * @return le noeud précédent de r dans la liste
+     */
     public Noeud getPrecedent(Noeud r) {
     // la liste n'est pas vide puisqu'on transmet un Node de la liste et le Node existe obligatoirement
         Noeud precedent = tete;
@@ -117,6 +134,12 @@ public class ListeSimple {
         return precedent;
     }
 
+
+/**
+ * La méthode échange deux noeuds donnés dans la liste. Si les deux noeuds sont identiques, on ne fait rien. Si l'un des deux noeuds est la tête de la liste, on met à jour la tête de la liste. On utilise getPrecedent pour trouver le noeud précédent de chaque noeud à échanger. On change ensuite les liens des noeuds pour les échanger.
+ * @param r1 le premier noeud à échanger
+ * @param r2 le deuxième noeud à échanger
+ */
     public void echanger(Noeud r1, Noeud r2) {
         if (r1 == r2)
             return;
